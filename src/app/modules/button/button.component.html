@@ -1,0 +1,7 @@
+<button bqButton bqKey bqClasses
+  class="nes-btn {{isType}}"
+  [disabled]="isDisabled()">
+  <i [bqIcon]="button.styles"></i>
+  <ng-container *ngIf="!this.hasCaption() && !this.hasIconStyle()">{{ "["+button.name+"]" }}</ng-container>
+  {{ button.caption }}
+</button>

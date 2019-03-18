@@ -1,0 +1,49 @@
+@import 'globals/variables';
+
+$scrollbar-track: #eee;
+$scrollbar-thumb: #888;
+$scrollbar-hover: #555;
+$scrollbar: #212529;
+
+.nes-container.with-title { // sass-lint:disable-line force-element-nesting
+  .title {
+    background-color: $bq-background-color;
+  }
+}
+
+.hint {
+  color: $scrollbar-hover;
+}
+
+.error {
+  color: map-get($bq-mat-accent-red, 500);
+}
+
+.fa {
+  font-size: 25px;
+}
+
+i {
+  filter: blur(1px);
+}
+
+::selection {
+  background: $bq-aquima-color; /* WebKit/Blink Browsers */
+}
+
+::-webkit-scrollbar { // sass-lint:disable-line no-vendor-prefixes
+  width: 20px;
+  background: $scrollbar;
+}
+
+::-webkit-scrollbar-track { // sass-lint:disable-line no-vendor-prefixes
+  background: $scrollbar-track;
+}
+
+::-webkit-scrollbar-thumb { // sass-lint:disable-line no-vendor-prefixes
+  background: $scrollbar-thumb;
+
+  &:hover {
+    background: $scrollbar-hover;
+  }
+}

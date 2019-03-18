@@ -1,0 +1,17 @@
+<div bqKey bqClasses>
+  <label for="field">{{field.questionText}}</label>
+  <input #autocomplete id="field" type="text" class="nes-input"
+    [required]="field.required"
+    [placeholder]="field.placeholder ? field.placeholder : ''"
+    [formControl]="formControl"
+    (blur)="checkValidOption($event)"
+    autocomplete="off">
+  <div class="autocomplete" style="max-height: 100px; background: white; overflow: scroll;">
+    <p *ngFor="let domainOption of filteredDomainOptions$  | async" (click)="setValue(domainOption)">
+      {{ domainOption.displayValue }}
+    </p>
+  </div>
+
+  <p class="hint">{{field.explainText}}</p>
+  <p class="error" *ngFor="let msg of getMessages()">{{msg.text}}</p>
+</div>

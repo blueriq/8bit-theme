@@ -1,0 +1,18 @@
+<div fxLayout="row" fxLayoutGap="1em">
+  <div fxFlex="0 0 14em">
+      <select class="nes-input" [(ngModel)]="operation" (change)="onOperationChanged()">
+        <option value="true">Only Yes</option>
+        <option value="false">Only No</option>
+        <option value="both">Show Both</option>
+        <option value="none">Show Neither</option>
+      </select>
+  </div>
+  <div fxFlex="0 0 14em"></div>
+  <div fxFlex="0 0 2em" fxLayoutAlign="center center">
+    <label>
+      <input type="checkbox" class="nes-checkbox" [checked]="showUnknown"
+        (change)="onUnknownChanged($event.checked)"/>
+      <span></span>
+    </label>
+  </div>
+</div>

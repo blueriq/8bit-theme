@@ -1,0 +1,25 @@
+<div fxLayout="row" fxLayoutGap="1em">
+  <div fxFlex="0 0 14em">
+    <select class="nes-input" [(ngModel)]="operator" (change)="onOperatorChanged()">
+      <option [value]="operations.before">Before</option>
+      <option [value]="operations.on">On</option>
+      <option [value]="operations.after">After</option>
+    </select>
+  </div>
+  <div fxFlex="0 0 14em" style="display: flex">
+      <span>
+        <button class="nes-btn close is-small" [owlDateTimeTrigger]="dtPicker">
+          <i class="fa fa-calendar"></i>
+        </button>
+      </span>
+      <input class="nes-input" (dateTimeChange)="onDateChanged($event)" [formControl]="dateControl" [owlDateTime]="dtPicker">
+      <owl-date-time #dtPicker [pickerType]="pickerType" [firstDayOfWeek]="firstDayOfWeek" showSecondsTimer></owl-date-time>
+  </div>
+  <div fxFlex="0 0 2em" fxLayoutAlign="center center">
+    <label>
+      <input type="checkbox" class="nes-checkbox" [checked]="showUnknown"
+        (change)="onUnknownChanged($event.checked)"/>
+      <span></span>
+    </label>
+  </div>
+</div>

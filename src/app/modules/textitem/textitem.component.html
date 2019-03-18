@@ -1,0 +1,19 @@
+<div bqKey bqClasses class="text-item">
+  <div class="gutter" *ngIf="shouldDisplayGutter()">
+    <i class="{{getGutterIcon()}}"></i>
+  </div>
+  <div class="aligner">
+
+    <p>
+      <ng-container *ngIf="textItem.rootNode.plainText; then textItemRootNode; else textItemPlainText"></ng-container>
+    </p>
+
+    <ng-template #textItemRootNode>
+      <ng-container [bqTextItemNode]="textItem.rootNode"></ng-container>
+    </ng-template>
+    <ng-template #textItemPlainText>
+      <ng-container>{{textItem.plainText}}</ng-container>
+    </ng-template>
+
+  </div>
+</div>

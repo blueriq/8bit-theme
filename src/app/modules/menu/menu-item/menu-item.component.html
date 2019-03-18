@@ -1,0 +1,22 @@
+<div [ngSwitch]="child.type">
+  <!-- button -->
+  <button *ngSwitchCase="'button'" class="nes-btn" [bqButton]="child" (click)="toggleSubMenu(false)">
+    {{ asButton(child).caption || "["+asButton(child).name+"]" }}
+  </button>
+
+  <!-- container with button(s) -->
+  <ng-container *ngSwitchCase="'container'">
+    <button class="nes-btn toggle" (click)="toggleSubMenu(true)">
+      {{ asContainer(child).displayName }}
+      <i class="fa fa-caret-down"></i>
+    </button>
+
+    <div *ngIf="showMenu" class="menu" (mouseleave)="toggleSubMenu(false)">
+      <bq-menu-item *ngFor="let grandchild of asContainer(child).children | bqIncluded"
+                    [child]="grandchild"></bq-menu-item>
+    </div>
+  </ng-container>
+
+  <!-- Other elements -->
+  <ng-container *ngSwitchDefault [bqElement]="child"></ng-container>
+</div>

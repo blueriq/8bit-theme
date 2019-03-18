@@ -1,0 +1,19 @@
+
+<div  bqKey bqClasses class="nes-table-responsive">
+  <table class="nes-table is-bordered is-centered">
+    <thead>
+    <tr>
+      <th *ngFor="let column of table.columns$ | async;">
+        <bq-header-column [column]="column"></bq-header-column>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of table.rows$ | async">
+      <td *ngFor="let column of table.columns$ | async">
+        <ng-container [bqElement]="row.cellFor(column).element"></ng-container>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

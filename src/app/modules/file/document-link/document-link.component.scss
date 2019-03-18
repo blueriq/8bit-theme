@@ -1,0 +1,12 @@
+@import 'globals/variables';
+
+button {
+  &.plain-link {
+    color: map-get($bq-mat-primary-blue, 500);
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

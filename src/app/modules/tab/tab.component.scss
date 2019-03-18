@@ -1,0 +1,13 @@
+@import 'globals/variables';
+
+i {
+  color: map-get($bq-mat-accent-red, 800);
+}
+
+button {
+  padding: 0 5px;
+
+  &::before {
+    border-bottom-style: none;
+  }
+}

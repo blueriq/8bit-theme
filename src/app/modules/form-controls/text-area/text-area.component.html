@@ -1,0 +1,6 @@
+<div bqKey bqClasses fxFlex>
+  <label for="field">{{field.questionText}}</label>
+  <textarea id="field" class="nes-textarea" [formControl]="formControl" style="margin-top: 4px; margin-bottom: 4px; height: 56px;"> </textarea>
+  <p class="hint">{{field.explainText}}</p>
+  <p class="error" *ngFor="let msg of getErrors()">{{msg.text}}</p>
+</div>

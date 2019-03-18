@@ -1,0 +1,9 @@
+@import 'globals/variables';
+
+.toast-error {
+  background: map-get($bq-mat-accent-red, 300);
+}
+
+.toast-warning {
+  background: map-get($bq-mat-accent-orange, 300);
+}

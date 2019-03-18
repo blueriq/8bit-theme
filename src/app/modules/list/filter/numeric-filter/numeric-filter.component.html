@@ -1,0 +1,19 @@
+<div fxLayout="row" fxLayoutGap="1em">
+  <div fxFlex="0 0 14em">
+    <select #color class="nes-input" [(ngModel)]="operator" (change)="onOperatorChanged()">
+      <option [value]="operations.lte">Less than or Equal to</option>
+      <option [value]="operations.equals">Equal to</option>
+      <option [value]="operations.gte">Greater than or Equal to</option>
+    </select>
+  </div>
+  <div fxFlex="0 0 14em">
+    <input class="nes-input" [value]="value" (change)="onValueChanged($event.target.value)">
+  </div>
+  <div fxFlex="0 0 2em" fxLayoutAlign="center center">
+    <label>
+      <input type="checkbox" class="nes-checkbox" [checked]="showUnknown"
+        (change)="onUnknownChanged($event.checked)"/>
+      <span></span>
+    </label>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<section class="balloon nes-container with-title">
+
+  <div class="messages">
+    <ng-container *ngFor="let entry of commentList.entries$ | async; let odd=odd; let even=even;">
+
+      <div class="message" [class.-left]="odd" [class.-right]="even" [class.odd]="odd" [class.even]="even">
+        <i *ngIf="odd" class="fa fa-user"></i>
+        <div class="nes-balloon" [class.from-left]="odd" [class.from-right]="even">
+          <p>{{entry.title}}</p>
+          <p>{{entry.username}}</p>
+          <p class="comment">{{entry.comment}}</p>
+          <p class="date">{{dateToHumanReadableFormat(entry.postedAt)}}</p>
+        </div>
+        <i *ngIf="even" class="fa fa-user"></i>
+      </div>
+
+    </ng-container>
+  </div>
+
+</section>

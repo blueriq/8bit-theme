@@ -1,0 +1,18 @@
+<div class="nes-container with-title" [bqContainer]="container">
+  <p class="title">{{timeline.displayName}}</p>
+
+  <div fxLayout="column" fxLayoutAlign="start start" class="timeline">
+    <div *ngFor="let entry of timeline.entries$ | async">
+
+      <div class="time-card">
+        <div class="nes-balloon from-left">
+          <p class="user">{{ entry.username }}</p>
+          <p class="action-name">{{ entry.actionName }}</p>
+          <p class="entry-name">{{ entry.entryName }}</p>
+          <p class="datetime">{{ dateToShortTime(entry.occurredAt) }} {{ dateToHumanReadableFormat(entry.occurredAt) }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

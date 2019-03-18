@@ -1,0 +1,20 @@
+<div class="nes-toolbar">
+  <div bqKey fxFlex fxLayout="row" fxFlexAlign="center center">
+    <h1 fxFlexAlign="center" align="center">blueriq</h1>
+    <h2 fxFlexAlign="center">{{ displayName }}</h2>
+  </div>
+
+  <ng-container *ngIf="dashboardHeader">
+    <ng-container *ngFor="let child of dashboardHeader.children | bqIncluded" [bqElement]="child"></ng-container>
+  </ng-container>
+
+  <div fxFlex="0 0 auto" class="application-actions" *ngIf="authenticatedUser || logoutLink">
+
+    <button class="nes-btn" (click)="logout()" *ngIf="logoutLink">
+      <i class="fa fa-user"></i>
+      {{ authenticatedUser ? authenticatedUser.plainText : '' }}
+      {{ logoutLink.plainText }}
+    </button>
+
+  </div>
+</div>

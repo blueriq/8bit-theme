@@ -1,0 +1,15 @@
+<div class="header" fxLayout="row" fxLayoutAlign="start center">
+
+  <!-- Header name -->
+  <ng-container [bqElement]="column.header"></ng-container>
+
+  <!-- Sorting -->
+  <button *ngIf="column.ordering !== 'unavailable'"
+    class="nes-btn"
+    [ngClass]="['sort-toggle', column.ordering]"
+    [bqButton]="column.toggleOrdering">{{getIconByDirection()}}</button>
+
+  <!-- Filtering -->
+  <i class="nes-icon star"  *ngIf="column.filter && column.filter.isActive$ | async"></i>
+
+</div>

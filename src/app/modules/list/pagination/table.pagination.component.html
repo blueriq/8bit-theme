@@ -1,0 +1,26 @@
+<div fxLayout="row">
+
+  <!-- Previous/Next -->
+  <button class="nes-btn first" [disabled]="pagination.first.disabled" [class.is-disabled]="pagination.first.disabled" [bqButton]="pagination.first">
+    <<
+  </button>
+  <button class="nes-btn previous" [disabled]="pagination.previous.disabled" [class.is-disabled]="pagination.previous.disabled" [bqButton]="pagination.previous">
+    <
+  </button>
+  <button class="nes-btn next" [disabled]="pagination.next.disabled" [class.is-disabled]="pagination.next.disabled" [bqButton]="pagination.next">
+    >
+  </button>
+  <button class="nes-btn last" [disabled]="pagination.last.disabled" [class.is-disabled]="pagination.last.disabled" [bqButton]="pagination.last">
+    >>
+  </button>
+
+  <div fxLayoutAlign="center center">
+    <!-- Display feedback -->
+    <div *ngIf="pagination.pagingFeedback">{{pagination.pagingFeedback.text}}</div>
+  </div>
+
+</div>
+<div fxLayout="row">
+  <!-- Range -->
+  <p class="paginator-range" fxLayoutAlign="center center">{{pagination.paginationText}}</p>
+</div>

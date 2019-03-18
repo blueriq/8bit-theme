@@ -1,0 +1,13 @@
+<div class="nes-container with-title" [bqContainer]="container">
+  <p class="title">{{container.displayName}}</p>
+
+  <div class="field">
+    <label for="textarea_field">Textarea</label>
+    <textarea id="textarea_field" class="nes-textarea" [formControl]="formControl" style="margin-top: 4px; margin-bottom: 4px; height: 56px;"></textarea>
+  </div>
+
+  <button fxLayout="row" fxLayoutAlign="end" bqKey bqClasses (click)="onClick()" class="nes-btn is-primary">
+    {{comment.caption}}
+  </button>
+
+</div>

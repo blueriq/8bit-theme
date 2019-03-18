@@ -1,0 +1,20 @@
+<div bqKey bqClasses [bqContainer]="widgetContainer" class="nes-container">
+
+  <p class="title">
+    <i [bqIcon]="widgetContainer.styles"></i>
+    {{widgetContainer.displayName}}
+  </p>
+
+  <bq-session
+    *ngIf="!shouldDisplayError()"
+    [sessionName]="flowWidget.sessionName"
+    (flowEnded)="handleFlowEnded()"
+    (expired)="handleSessionExpired()"
+    (error)="handleError($event)"></bq-session>
+  
+  <div class="is-dark with-title" *ngIf="shouldDisplayError()">
+    <p class="title">Error</p>
+    <label fxLayout="row" class="error" >{{errorMessage}}</label>
+  </div>
+
+</div>

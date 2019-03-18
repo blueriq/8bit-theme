@@ -1,0 +1,36 @@
+@import 'variables';
+
+// This file contains styles that have to be global due to use of elements that
+// do not have view encapsulation applied to themselves
+
+.text-item {
+  span {
+    &.warning,
+    &.Warning { // sass-lint:disable-line class-name-format
+      padding-top: 1px;
+      padding-bottom: 1px;
+      background-color: map-get($bq-mat-accent-orange, 100);
+    }
+
+    &.danger,
+    &.Danger { // sass-lint:disable-line class-name-format
+      padding-top: 1px;
+      padding-bottom: 1px;
+      background-color: map-get($bq-mat-accent-red, 100);
+    }
+
+    &.info,
+    &.Info { // sass-lint:disable-line class-name-format
+      padding-top: 1px;
+      padding-bottom: 1px;
+      background-color: map-get($bq-mat-primary-blue, 100);
+    }
+
+    &.success,
+    &.Success { // sass-lint:disable-line class-name-format
+      padding-top: 1px;
+      padding-bottom: 1px;
+      background-color: map-get($bq-mat-accent-green, 100);
+    }
+  }
+}

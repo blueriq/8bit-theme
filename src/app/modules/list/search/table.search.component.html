@@ -1,0 +1,9 @@
+<div *ngIf="search.isVisible" bqKey bqClasses fxLayoutAlign="end center">
+  <input class="nes-input"
+    type="text"
+    [value]="searchTerms.join(',')"
+    [disabled]="search.searchButton.disabled"
+    placeholder="Search (comma separated)"
+    (change)="change()"
+    #inputField>
+</div>

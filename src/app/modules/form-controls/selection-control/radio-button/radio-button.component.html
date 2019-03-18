@@ -1,0 +1,17 @@
+<section bqKey class="nes-container with-title">
+  <h2 *ngIf="field.questionText" class="title">{{field.questionText}}</h2>
+
+  <div [fxLayout]="direction === 'vertical' ? 'column' : 'row wrap'">
+    <label *ngFor="let option of field.domain.options">
+      <input type="radio" class="nes-radio" [name]="field.key" [checked]="isChecked(option.value)" [disabled]="isDisabled" [value]="option.value" (change)="changed(option.value)">
+      <span>{{option.displayValue}}</span>
+    </label>
+  </div>
+
+  <ng-container *ngIf="!list">
+    <p *ngIf="!getMessages().hasMessages" class="hint">{{field.explainText}}</p>
+    <div *ngIf="getMessages().hasMessages">
+      <p class="error" *ngFor="let msg of getMessages()">{{ msg.text }}</p>
+    </div>
+  </ng-container>
+</section>

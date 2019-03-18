@@ -1,0 +1,7 @@
+<h2>{{container.displayName}}</h2>
+<button *ngFor="let child of container.children" class="nes-btn" (click)="openTab(child.key)">{{child.displayName || '[' + child.name + ']'}}</button>
+<div *ngFor="let child of container.children; let first = first;">
+  <div [id]="child.key" [ngStyle]="{'display':first ? 'block' : 'none' }">
+    <ng-container [bqElement]="child"></ng-container>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div [bqContainer]="container" bqKey bqClasses [class.nes-container]="isCard()" [class.with-title]="container.displayName">
+
+  <p class="title" *ngIf="!list">
+    <i  [bqIcon]="container.styles"></i>
+      {{container.displayName}}
+  </p>
+
+    <div *ngIf="isHorizontal" class="bq-row">
+      <ng-container *ngFor="let child of container.children | bqIncluded"
+        [bqElement]="child"
+        bqFlexChild></ng-container>
+    </div>
+
+    <!-- Default case, direct children will be rendered vertically, unless the bqFlexColumn directive changes this-->
+    <div *ngIf="!isHorizontal">
+      <ng-container *ngFor="let child of container.children | bqIncluded"
+        [bqElement]="child"
+        bqFlexColumn></ng-container>
+    </div>
+</div>

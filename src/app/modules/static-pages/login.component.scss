@@ -1,0 +1,33 @@
+@import 'globals/variables';
+
+@keyframes move {
+  0%, 100% {
+    top: 0;
+  }
+
+  50% {
+    top: 120px;
+  }
+}
+
+.nes-container {
+  background-color: $white;
+}
+
+.logo {
+  margin-bottom: $bq-base-margin;
+}
+
+.overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: background 2s ease;
+  background: $white;
+  overflow: hidden;
+  box-sizing: inherit;
+}
+
+.failed {
+  background: map-get($bq-mat-accent-red, 700);
+}

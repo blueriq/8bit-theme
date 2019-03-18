@@ -1,0 +1,13 @@
+@import 'globals/variables';
+
+$c1: map-get($bq-mat-primary-blue, 500);
+$c2: map-get($bq-mat-primary-purple, 500);
+$c3: map-get($bq-mat-primary-violet, 500);
+
+.nes-toolbar {
+  min-height: $bq-toolbar-height;
+
+  // sass-lint:disable-all
+  background: $bq-aquima-color;
+  color: $light-primary-text;
+}

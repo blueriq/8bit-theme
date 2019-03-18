@@ -1,0 +1,19 @@
+@import 'globals/variables';
+
+.message {
+  @include elevation;
+  margin: $bq-margin;
+  padding: $bq-margin;
+  background: map-get($bq-mat-accent-red, 400);
+  color: map-get($bq-mat-accent-red, default-contrast);
+}
+
+.trace {
+  @include elevation;
+  max-height: $bq-max-height-scrollbar;
+  margin: $bq-margin;
+  padding: $bq-margin;
+  background: mat-color($bq-mat-grey-light, 50);
+  font-size: 11px;
+  overflow-y: auto;
+}

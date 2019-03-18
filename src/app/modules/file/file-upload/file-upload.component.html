@@ -1,0 +1,25 @@
+<div [bqContainer]="container">
+
+  <p class="title">
+    <i [bqIcon]="container.styles"></i>
+    {{container.displayName}}
+  </p>
+
+  <button class="nes-btn" (click)="fileInput.click()">{{fileUpload.uploadLabel}}</button>
+  <input hidden ng2FileSelect type="file" [uploader]="uploader" [multiple]="fileUpload.multiple" #fileInput>
+  <div class="nes-container">
+    <p class="hint" *ngIf="fileUpload.allowedExtensions">{{fileUpload.allowedExtensionsDescription}}</p>
+    <p class="hint" *ngIf="fileUpload.maxFileSize">{{fileUpload.maxFileSizeDescription}}</p>
+    <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+  </div>
+
+  <div *ngIf="isBusy" class="nes-container is-dark">
+    <div>
+      <progress class="nes-progress is-success" value="{{uploader.progress}}" max="100"></progress>
+    </div>
+    <button class="nes-btn" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+      <i class="fa fa-cancel"></i>
+    </button>
+    Cancel all
+  </div>
+</div>

@@ -1,0 +1,7 @@
+@import 'globals/variables';
+
+h2 {
+  margin-top: 0; // reset top margin, Card padding is in place
+  color: $white;
+  font-weight: 400;
+}

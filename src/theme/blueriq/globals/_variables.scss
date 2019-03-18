@@ -1,0 +1,59 @@
+@import './color-palettes';
+
+// Margin system, for consistency all margins are derivatives from a single base margin
+// Use the $bq-margin-* variables in all SCSS for padding, margin, etc to achieve a form of consistency
+$bq-base-margin: 12px;
+$bq-margin: $bq-base-margin;
+$bq-margin-half: $bq-base-margin / 2;
+$bq-margin-double: $bq-base-margin * 2;
+$bq-margin-triple: $bq-base-margin * 3;
+$bq-margin-quadruple: $bq-base-margin * 4;
+
+$bq-max-height-scrollbar: 700px;
+
+// Other variables
+$bq-font-family: 'Press Start 2P', cursive;
+$bq-toolbar-height: 77px;
+
+// Default sizes for headings
+$h1-size: 2em;
+$h2-size: 1.5em;
+$h3-size: 1.17em;
+$h4-size: 1.12em;
+$h5-size: .83em;
+$h6-size: .75em;
+
+// In widgets, headings should be one level smaller
+$h1-widget-size: $h2-size;
+$h2-widget-size: $h3-size;
+$h3-widget-size: $h4-size;
+$h4-widget-size: $h5-size;
+$h5-widget-size: $h6-size;
+$h6-widget-size: .66em;
+
+//responsive design variables
+$break-small: 768px;
+$break-medium: 1024px;
+$break-large: 1240px;
+
+$width-small: 512px;
+$width-medium: 768px;
+$width-large: 1024px;
+$width-extra-large: 1240px;
+
+$gutter-width-small: $bq-margin;
+$gutter-width-medium: $bq-margin-double;
+$gutter-width-large: $bq-margin-quadruple;
+
+$z-index-drawer: 100; //!default;
+
+$font-family: quote($bq-font-family);
+
+@mixin elevation {
+  $color1: rgba(0, 0, 0, .2);
+  $color2: rgba(0, 0, 0, .14);
+  $color3: rgba(0, 0, 0, .12);
+  box-shadow: 0 2px 1px -1px $color1,
+  0 1px 1px 0 $color2,
+  0 1px 3px 0 $color3;
+}

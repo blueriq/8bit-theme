@@ -1,0 +1,39 @@
+<div fxLayout="row" fxLayoutGap="1em">
+  <div fxFlex="0 0 14em">
+    <select class="nes-input" [(ngModel)]="candidate.selectedColumn" (change)="onColumnChanged()" name="data">
+      <option [ngValue]="undefined"></option>
+      <option *ngFor="let currentColumn of currentColumns" [ngValue]="currentColumn">
+        {{currentColumn.title}}
+      </option>
+    </select>
+  </div>
+
+  <div [ngSwitch]="getType()" fxFlex="0 0 32em" class="rrr">
+    <bq-domain-filter *ngSwitchCase="'domain'"
+      [candidate]="candidate"
+      [domain]="candidate.selectedColumn!.domain"></bq-domain-filter>
+
+    <bq-boolean-filter *ngSwitchCase="'boolean'"
+      [candidate]="candidate"></bq-boolean-filter>
+
+    <bq-numeric-filter *ngSwitchCase="'numeric'"
+      [candidate]="candidate"></bq-numeric-filter>
+
+    <bq-date-filter *ngSwitchCase="'date'" type="date"
+      [candidate]="candidate"></bq-date-filter>
+
+    <bq-date-filter *ngSwitchCase="'datetime'" type="datetime"
+      [candidate]="candidate"></bq-date-filter>
+
+    <bq-text-filter *ngSwitchCase="'text'"
+      [candidate]="candidate"></bq-text-filter>
+
+    <bq-empty-filter *ngSwitchDefault></bq-empty-filter>
+  </div>
+
+  <div fxFlex="0 0 2em" fxLayoutAlign="end">
+    <button class="nes-btn" (click)="removed.emit()">
+      X
+    </button>
+  </div>
+</div>

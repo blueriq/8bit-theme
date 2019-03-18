@@ -1,0 +1,27 @@
+<div fxFill fxLayout="column" fxLayoutAlign="center center" class="overlay" [class.failed]="failed">
+
+  <form [formGroup]="loginForm">
+
+    <div fxLayoutAlign="center">
+      <img class="logo" src="./theme/blueriq/images/bluebit.png" height="50px"/>
+    </div>
+
+    <div>
+      <div fxFill appearance="fill">
+        <p>Username</p>
+        <input class="nes-input" formControlName="username" name="username">
+      </div>
+      <div fxFill appearance="fill">
+        <p>Password</p>
+        <input class="nes-input" formControlName="password" type="password" name="password" autocomplete="off">
+      </div>
+      <div>
+        <p> </p>
+        <p *ngIf="failed">Authentication failed</p>
+      </div>
+      <button class="nes-btn" fxFill (click)="login()" color="primary" id="loginbutton">Login</button>
+    </div>
+
+  </form>
+
+</div>

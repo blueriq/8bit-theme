@@ -1,0 +1,67 @@
+@import '~ng-pick-datetime/assets/style/picker.min.css';
+
+//override specific styling to match to match it with the global theme
+
+$blue: map-get($bq-mat-primary-blue, 500);
+$datepicker-bq-color: rgba($blue, .2);
+
+.owl-dialog-container,
+.owl-dt-timer,
+.owl-dt-timer-input,
+.owl-dt-container-buttons,
+.owl-dt-control-button,
+.owl-dt-container-control-button {
+  font-family: $bq-font-family;
+}
+
+.owl-dt-calendar-table {
+  .owl-dt-calendar-cell-selected {
+    background-color: $blue;
+  }
+
+  .owl-dt-calendar-cell-in-range {
+    background: $datepicker-bq-color;
+  }
+}
+
+// sass-lint:disable nesting-depth
+.owl-dt-timer-hour12 {
+  color: $blue;
+
+  .owl-dt-timer-hour12-box {
+    &:focus,
+    &:hover {
+      .owl-dt-control-button-content {
+        background: $blue;
+        color: $light-primary-text;
+      }
+    }
+  }
+}
+
+.owl-dt-timer-content {
+  .owl-dt-timer-input {
+    border: 1px solid $dark-tertiary-text; // more subtle border
+
+    &:active,
+    &:focus {
+      border-bottom-color: $blue;
+    }
+  }
+}
+
+.owl-dt-container-buttons {
+  height: 3em; // more spacing for the buttons
+  color: $blue;
+
+  .owl-dt-control-button-content {
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+
+.owl-dt-container-info {
+  .owl-dt-container-info-active {
+    color: $blue;
+  }
+}

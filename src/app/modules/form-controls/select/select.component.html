@@ -1,0 +1,33 @@
+<div bqKey bqClasses>
+
+  <!-- -->
+  <ng-container *ngIf="!field.multiValued">
+    <label for="select">{{field.questionText}}</label>
+    <select id="select" class="nes-input"
+      [formControl]="formControl"
+      [required]="field.required"
+      [class.is-error]="messages.hasErrors">
+      <option [ngValue]="undefined">{{field.placeholder}}</option>
+      <option *ngFor="let option of getOptions()" [value]="option.value">
+        {{option.displayValue}}
+      </option>
+    </select>
+  </ng-container>
+
+  <ng-container *ngIf="field.multiValued">
+    <label for="multi_select">{{field.questionText}}</label>
+    <select id="multi_select" class="nes-input"
+      [formControl]="formControl"
+      [required]="field.required"
+      multiple
+      [class.is-error]="messages.hasErrors">
+      <option *ngFor="let option of getOptions()" [value]="option.value">
+        {{option.displayValue}}
+      </option>
+    </select>
+  </ng-container>
+
+  <p class="hint">{{field.explainText}}</p>
+  <p *ngFor="let error of messages.errors" class="error">{{ error.text }}</p>
+  <p *ngFor="let warning of messages.warnings" class="error">{{ warning.text }}</p>
+</div>

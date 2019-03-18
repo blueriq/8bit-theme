@@ -1,0 +1,10 @@
+<div bqKey bqClasses fxFlex class="form-group">
+  <label for="field">{{field.questionText}}</label>
+  <input #field id="field" class="nes-input"
+    [required]="field.required"
+    [formControl]="formControl"
+    [placeholder]="placeholder">
+  <!-- validations -->
+  <span *ngFor="let error of messages.errors" class="help-block error">{{ error.text }}</span>
+  <span *ngFor="let warning of messages.warnings" class="help-block warning">{{ warning.text }}</span>
+</div>

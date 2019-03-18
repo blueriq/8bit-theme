@@ -1,0 +1,18 @@
+@import 'globals/variables';
+
+.messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.odd {
+  align-self: flex-start;
+}
+
+.even {
+  align-self: flex-end;
+}
+
+.fa {
+  font-size: 70px;
+}

@@ -1,0 +1,37 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+  <button class="nes-btn"
+    (click)="showFilter()">
+    FILTER #{{filter.currentFilters.all.length}}
+  </button>
+  <button class="nes-btn" (click)="clearFilters()" *ngIf="filter.currentFilters.all.length > 0">
+    CLEAR
+  </button>
+</div>
+
+<div class="nes-container with-title dialog" *ngIf="showDialog">
+  <p class="title">Filters</p>
+  <div class="margin">
+    <div fxLayout="row" fxLayoutGap="1em" fxFlexAlign="start end" class="header">
+      <label fxFlex="0 0 14em">Column name</label>
+      <label fxFlex="0 0 14em">Operation</label>
+      <label fxFlex="0 0 14em">Value</label>
+      <label fxFlex="0 0 4em">{{showUnknownLabel}}</label>
+    </div>
+
+    <bq-filter-row *ngFor="let candidate of filterCandidates"
+      [currentColumns]="filter.currentColumns"
+      [candidate]="candidate"
+      (removed)="removeFilter(candidate)">
+    </bq-filter-row>
+
+    <div fxLayout="row">
+      <div *ngIf="canAddFilter()">
+        <button class="nes-btn" (click)="addFilter()">Add filter</button>
+      </div>
+      <div>
+        <button class="nes-btn is-primary" (click)="applyFilters()">Apply filter</button>
+      </div>
+    </div>
+
+  </div>
+</div>

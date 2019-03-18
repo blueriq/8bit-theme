@@ -1,0 +1,56 @@
+@import 'globals/variables';
+
+$bq-footer-height: 200px;
+
+.header {
+  @include elevation;
+  position: fixed;
+  width: 100%;
+  z-index: $z-index-drawer + 10;
+}
+
+.page {
+  margin-bottom: $bq-margin-double;
+}
+
+/* There could be more toolbars on the page
+*  this takes care for at least 5 toolbars
+*/
+@mixin margins {
+  @for $i from 1 through 5 {
+    .margin-#{$i} {
+      padding-top: ($bq-toolbar-height * $i) + $bq-margin;
+    }
+  }
+}
+
+@include margins;
+
+footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  color: $dark-secondary-text;
+  text-align: center;
+
+  a {
+    color: $dark-secondary-text;
+    font-style: normal;
+    text-decoration: none;
+
+    &:hover,
+    &:visited {
+      color: $dark-primary-text;
+    }
+  }
+
+  address {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  &::after {
+    display: block;
+    height: 50px;
+    content: '';
+  }
+}

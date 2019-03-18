@@ -1,0 +1,31 @@
+@import 'globals/variables';
+
+$c1: map-get($bq-mat-primary-blue, 500);
+$c2: map-get($bq-mat-primary-purple, 500);
+$c3: map-get($bq-mat-primary-violet, 500);
+
+.nes-toolbar {
+  top: 0;
+
+  min-height: $bq-toolbar-height;
+
+  // sass-lint:disable-all
+  background-image: linear-gradient(to right, $c1 33.33%, $c2 33.33%, $c2 66.66%, $c3 66.66%);
+
+  color: $light-primary-text;
+
+  // sass-lint:disable-all
+  h1, h2 {
+    margin: 0 $bq-margin;
+    color: $light-primary-text;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  .application-actions {
+    text-align: right;
+  }
+}

@@ -1,0 +1,21 @@
+<div fxLayout="row" fxLayoutGap="1em">
+  <div fxFlex="0 0 14em">
+    <select class="nes-input">
+      <option ngValue="in">One of</option>
+    </select>
+  </div>
+  <div fxFlex="0 0 14em">
+    <select multiple class="nes-input" [(ngModel)]="values" (change)="onValueChanged()">
+      <option *ngFor="let option of domain.options" [ngValue]="option.value">
+        {{option.displayValue}}
+      </option>
+    </select>
+  </div>
+  <div fxFlex="0 0 2em" fxLayoutAlign="center center">
+    <label>
+      <input type="checkbox" class="nes-checkbox" [checked]="showUnknown"
+        (change)="onUnknownChanged($event.checked)"/>
+      <span></span>
+    </label>
+  </div>
+</div>

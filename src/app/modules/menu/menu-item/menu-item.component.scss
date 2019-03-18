@@ -1,0 +1,38 @@
+@import 'globals/variables';
+
+$font-size: 14px;
+
+.nes-btn {
+  margin: 0 $bq-margin;
+  background: transparent;
+  color: $light-primary-text;
+  font-size: $font-size;
+  font-weight: 400;
+  text-transform: uppercase;
+  box-shadow: none;
+  overflow: hidden;
+
+  .i {
+    width: $font-size;
+    height: $font-size;
+    margin: 0;
+    color: $light-primary-text;
+    font-size: $font-size;
+  }
+
+  &:hover {
+    background: darken($bq-aquima-color, 10%);
+  }
+}
+
+.menu {
+  position: absolute;
+  margin: $bq-margin-triple;
+  padding: $bq-margin-triple;
+  border: $black;
+  border-style: inset;
+  background: $bq-aquima-color;
+  z-index: 10;
+}
+
+

@@ -1,0 +1,18 @@
+<div bqKey bqClasses fxFlex>
+  <label for="field">{{field.questionText}}</label>
+  <div style="display: flex">
+    <span>
+      <button class="nes-btn" [owlDateTimeTrigger]="dtPicker">
+        <i class="fa fa-calendar"></i>
+      </button>
+    </span>
+    <input type="text" [placeholder]="field.placeholder ? field.placeholder : ''" [required]="field.required" [formControl]="formControl"
+      id="field" class="nes-input" [owlDateTime]="dtPicker" (dateTimeChange)="formatOnChange($event)">
+  </div>
+  <owl-date-time #dtPicker [pickerType]="getPickerType()" [firstDayOfWeek]="firstDayOfWeek"
+    [showSecondsTimer]="true" [disabled]="formControl.disabled"></owl-date-time>
+
+  <p class="hint">{{field.explainText}}</p>
+  <p class="error" *ngIf="invalidInput()">invalid input</p>
+  <p class="error" *ngFor="let msg of getMessages()">{{msg.text}}</p>
+</div>

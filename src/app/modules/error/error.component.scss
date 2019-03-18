@@ -1,0 +1,78 @@
+@import 'globals/variables';
+
+$bsod-color: #020181;
+
+.error-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-drawer + 200;
+
+  .severity-error {
+    background-color: $bsod-color;
+  }
+
+  .severity-notice {
+    background-color: $bsod-color;
+  }
+
+  .severity-error,
+  .severity-notice {
+    width: 100%;
+    padding: $bq-margin;
+    color: $white;
+    text-align: center;
+
+    img {
+      margin-top: $bq-margin-triple;
+    }
+
+    i {
+      &::before {
+        color: $white;
+      }
+    }
+
+    .title,
+    .message,
+    .details {
+      width: 250px;
+      word-wrap: break-word;
+    }
+
+    .title {
+      margin-bottom: $bq-margin;
+      font-size: 48px;
+      font-weight: normal;
+    }
+
+    .message {
+      font-size: 16px;
+    }
+
+    .details {
+      padding: $bq-margin;
+      background-color: map-get($bq-mat-grey-light, 900);
+    }
+
+    .button {
+      width: 100%;
+
+      button {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $dark-tertiary-text;
+  z-index: $z-index-drawer + 100;
+}

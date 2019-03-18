@@ -1,0 +1,16 @@
+<div class="nes-container">
+  <div class="message" fxLayout="row" (dblclick)="showTrace=!showTrace">
+    {{failedElement.message}}
+    <ng-container *ngIf="isDev">
+      <button class="nes-btn" (click)="copyToClipboard()">
+        <i class="fa fa-copy"></i>
+      </button>
+      <button class="nes-btn"  (click)="showTrace=!showTrace">
+        <i class="fa fa-caret-down"></i>
+      </button>
+    </ng-container>
+  </div>
+  <div *ngIf="isDev && showTrace" class="trace" fxLayout="row">
+    <pre>{{failedElement.stacktrace}}</pre>
+  </div>
+</div>

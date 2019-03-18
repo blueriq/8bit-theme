@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.blueriq</groupId>
+	<artifactId>blueriq-8-bit</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.8-SNAPSHOT</version>
+
+	<name>Blueriq 8bit</name>
+	<description>Blueriq 8bit</description>
+
+	<properties>
+		<scm.connection>scm:git:git@bq-gitlab.everest.nl:blueriq/blueriq-8bit.git</scm.connection>
+		<scm.developerConnection>scm:git:git@bq-gitlab.everest.nl:blueriq/blueriq-8bit.git</scm.developerConnection>
+		<scm.url>https://git.blueriq.com/blueriq/blueriq-8bit/tree/master</scm.url>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<executions>
+					<execution>
+						<id>yarn install (initialize)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>initialize</phase>
+						<configuration>
+							<executable>yarn.cmd</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>yarn build</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>initialize</phase>
+						<configuration>
+							<executable>yarn.cmd</executable>
+							<arguments>
+								<argument>build:runtime</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>filter-resources</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.outputDirectory}/webresources/angular/8bit
+							</outputDirectory>
+							<resources>
+								<resource>
+									<filtering>false</filtering>
+									<directory>dist/</directory>
+									<include>**</include>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>artifactory</id>
+			<name>artifactory-releases</name>
+			<url>https://artifactory.blueriq.com/artifactory/libs-blueriq-8bit-release-local/</url>
+		</repository>
+		<snapshotRepository>
+			<id>artifactory</id>
+			<name>artifactory-snapshots</name>
+			<url>https://artifactory.blueriq.com/artifactory/libs-blueriq-8bit-snapshot-local/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<scm>
+		<connection>${scm.connection}</connection>
+		<developerConnection>${scm.developerConnection}</developerConnection>
+		<url>${scm.url}</url>
+		<tag>HEAD</tag>
+	</scm>
+
+</project>

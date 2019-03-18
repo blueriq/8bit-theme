@@ -1,0 +1,18 @@
+@import 'globals/variables';
+
+$shape-size: 14px;
+$shape-top: 20px;
+
+.timeline {
+  max-height: $bq-max-height-scrollbar;
+  padding-left: $bq-margin-double;
+  border-left-width: 6px;
+  border-left-style: dotted;
+  border-left-color: $bq-aquima-color;
+  overflow-y: auto;
+}
+
+.time-card {
+  $card-left-margin: $bq-margin;
+  position: relative;
+}

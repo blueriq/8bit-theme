@@ -1,0 +1,166 @@
+@import 'globals/variables';
+
+$game-z-index: 200;
+$hero-size: 70px;
+$figure-size: 23px;
+$hud-color: rgba(120, 59, 149, .71);
+$red: #f00;
+$yellow: #ff0;
+
+.playing {
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: $hud-color;
+  color: $white;
+  text-align: center;
+  z-index: $game-z-index;
+}
+
+.gameover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: $bq-margin-double;
+  transform: translate(-50%, -50%);
+  background: $hud-color;
+  z-index: $game-z-index;
+}
+
+.hud {
+  label {
+    margin-right: 40px;
+  }
+
+  .time {
+    color: $red;
+  }
+
+  .score {
+    color: $yellow;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+/* The game objects */
+@mixin object {
+  position: fixed;
+  max-width: 100%;
+  max-height: 100%;
+  border: 0;
+}
+
+@mixin figure($size: $figure-size) {
+  bottom: -1000px;
+  left: -1000px;
+  width: $size;
+  height: $size;
+  z-index: -1; // behind buttons
+}
+
+.hero {
+  @include object;
+  top: 5px;
+  left: 20%;
+  width: $hero-size;
+  height: $hero-size;
+  background: url('/../../theme/blueriq/images/game/e_pixel.png') no-repeat center center / contain;
+  z-index: $game-z-index - 10;
+  animation: rotating 3s linear infinite;
+}
+
+.hoek {
+  @include object;
+  @include figure;
+  background: url('/../../theme/blueriq/images/game/hoek.png') no-repeat center center / contain;
+}
+
+.rond {
+  @include object;
+  @include figure;
+  background: url('/../../theme/blueriq/images/game/rond.png') no-repeat center center / contain;
+}
+
+.streep {
+  @include object;
+  @include figure;
+  background: url('/../../theme/blueriq/images/game/streep.png') no-repeat center center / contain;
+}
+
+.punten {
+  @include object;
+  @include figure($figure-size*2);
+  background: url('/../../theme/blueriq/images/game/punten.png') no-repeat center center / contain;
+}
+
+.tijd {
+  @include object;
+  @include figure($figure-size*2);
+  background: url('/../../theme/blueriq/images/game/tijd.png') no-repeat center center / contain;
+}
+
+.curse {
+  @include object;
+  @include figure($figure-size*2);
+  background: url('/../../theme/blueriq/images/game/curse.png') no-repeat center center / contain;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* random animations */
+@keyframes orbitting {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+@keyframes crazy { // sass-lint:disable empty-line-between-blocks
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-50px, -100px);
+  }
+  20% {
+    transform: translate(-105px, 50px);
+  }
+  30% {
+    transform: translate(70px, -50px);
+  }
+  40% {
+    transform: translate(-50px, 50px);
+  }
+  50% {
+    transform: translate(-90px, 100px);
+  }
+  60% {
+    transform: translate(85px, 0);
+  }
+  70% {
+    transform: translate(0, 90px);
+  }
+  80% {
+    transform: translate(30px, 90px);
+  }
+  90% {
+    transform: translate(-100px, 10px);
+  }
+}
+
+// sass-lint:enable empty-line-between-blocks

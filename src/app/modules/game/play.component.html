@@ -1,0 +1,41 @@
+<div *ngIf="gameState==GAMESTATE.playing" class="playing">
+  <div>
+    <h1>Playing</h1>
+  </div>
+  <div class="hud">
+    <label>score: <span class="score">{{score}}</span>p </label>
+    <label>time: <span class="time">{{countdown}}</span> </label>
+    <label>progress: <span class="progress">{{100 - progress | number:'1.0-0'}}/90</span> </label>
+  </div>
+</div>
+
+<div *ngIf="gameState==GAMESTATE.hub || gameState==GAMESTATE.gameover " class="gameover">
+  <div *ngIf="gameState==GAMESTATE.hub">
+    <button (click)="play()" class="nes-btn is-error">
+      <i class="fa fa-play"></i>
+      Start game!
+    </button>
+  </div>
+  <div *ngIf="gameState==GAMESTATE.gameover" class="hud">
+    <h1>Game over!</h1>
+    <div>
+      <label>score: <span class="score">{{score}}</span>p </label>
+      <label>time: <span class="time">{{countdown}}</span> </label>
+    </div>
+    <ng-container *ngFor="let child of container.children | bqIncluded" [bqElement]="child"></ng-container>
+  </div>
+</div>
+
+
+<!-- game objects -->
+<div *ngIf="gameState==GAMESTATE.playing" #hero class="hero"></div>
+
+<ng-container>
+  <div #figure class="figure hoek"></div>
+  <div #figure class="figure streep"></div>
+  <div #figure class="figure rond"></div>
+  <div #figurex class="special punten"></div>
+  <div #figurex class="special tijd"></div>
+  <div #figurex class="special curse"></div>
+</ng-container>
+

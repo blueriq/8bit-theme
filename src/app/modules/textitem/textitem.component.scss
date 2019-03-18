@@ -1,0 +1,75 @@
+@import 'globals/variables';
+
+// This style uses double flex layout due to vertical alignment of icon and content
+
+.text-item {
+  display: flex;
+  color: $dark-primary-text;
+  font-size: 14px;
+  line-height: 20px;
+
+  p {
+    margin: 0 0 10px;
+  }
+
+  .gutter {
+    display: flex;
+    margin-right: 15px;
+    padding: 4px 6px;
+    font-size: 22px;
+  }
+
+  .text {
+    display: flex;
+  }
+
+  .aligner {
+    align-self: center;
+  }
+
+  &.warning,
+  &.Warning { // sass-lint:disable-line class-name-format
+    .gutter {
+      background-color: map-get($bq-mat-accent-orange, 100);
+      color: map-get($bq-mat-accent-orange, 800);
+    }
+  }
+
+  &.danger,
+  &.Danger { // sass-lint:disable-line class-name-format
+    .gutter {
+      background-color: map-get($bq-mat-accent-red, 100);
+      color: map-get($bq-mat-accent-red, 800);
+    }
+  }
+
+  &.info,
+  &.Info { // sass-lint:disable-line class-name-format
+    .gutter {
+      background-color: map-get($bq-mat-primary-blue, 100);
+      color: map-get($bq-mat-primary-blue, 800);
+    }
+  }
+
+  &.success,
+  &.Success { // sass-lint:disable-line class-name-format
+    .gutter {
+      background-color: map-get($bq-mat-accent-green, 100);
+      color: map-get($bq-mat-accent-green, 800);
+    }
+  }
+
+  ::ng-deep {
+    .emphasis {
+      font-weight: bold;
+    }
+
+    .subtle {
+      text-decoration: underline;
+    }
+
+    .intense {
+      font-style: italic;
+    }
+  }
+}

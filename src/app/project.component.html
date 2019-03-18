@@ -1,0 +1,21 @@
+<bq-loading #loader></bq-loading>
+
+<bq-project
+  [sessionName]="sessionName | async"
+  [sessionId]="sessionId | async"
+  [shortcut]="shortcut | async"
+  [project]="project | async"
+  [flow]="flow | async"
+  [version]="version | async"
+  [languageCode]="languageCode | async"
+  [parameters]="parameters | async"
+  (flowEnded)="onFlowEnded()"
+  (expired)="onSessionExpired()"
+  (error)="onError($event)"
+  (unauthorized)="onUnauthorized($event)">
+</bq-project>
+
+<bq-error
+  *ngIf="error"
+  [error]="error"
+  (onClosed)="clearError()"></bq-error>

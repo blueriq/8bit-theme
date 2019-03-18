@@ -1,0 +1,9 @@
+<button bqKey bqClasses *ngIf="hasButtonPresentationStyle()" class="nes-btn" (click)="onClick()">
+  <i class="fa fa-file"></i>
+  {{getDisplayText()}}
+</button>
+
+<p bqKey bqClasses *ngIf="!hasButtonPresentationStyle()" class="plain-link" (click)="onClick()">
+  <i class="fa fa-file"></i>
+  {{getDisplayText()}}
+</p>

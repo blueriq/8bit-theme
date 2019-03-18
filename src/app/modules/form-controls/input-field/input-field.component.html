@@ -1,0 +1,14 @@
+<div bqKey bqClasses fxFlex class="form-group">
+  <label for="field">{{field.questionText}}</label>
+  <span *ngIf="iconPrefix">
+    <i class="{{iconPrefix}}"></i>
+  </span>
+  <span *ngIf="fieldPrefix" class="prefix">{{fieldPrefix}}</span>
+  <input type="text" [placeholder]="field.placeholder ? field.placeholder : ''" [required]="field.required" [formControl]="formControl" id="field" class="nes-input">
+  <span *ngIf="fieldSuffix" class="suffix">{{fieldSuffix}}</span>
+
+  <p class="hint">{{field.explainText}}</p>
+  <p *ngFor="let error of messages.errors" class="error">{{ error.text }}</p>
+  <p *ngFor="let warning of messages.warnings" class="error">{{ warning.text }}</p>
+
+</div>

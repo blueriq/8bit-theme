@@ -1,0 +1,14 @@
+<div bqKey [class.selection-control]="!list">
+  <div>
+    <label>
+      <input type="checkbox" class="nes-checkbox" [required]="field.required" [formControl]="formControl" checked="">
+      <span>{{ list ? '' : field.questionText}}</span>
+    </label>
+  </div>
+  <ng-container *ngIf="!list">
+    <p *ngIf="!getMessages().hasMessages" class="hint">{{field.explainText}}</p>
+    <div *ngIf="getMessages().hasMessages">
+      <p class="error" *ngFor="let msg of getMessages()">{{ msg.text }}</p>
+    </div>
+  </ng-container>
+</div>
