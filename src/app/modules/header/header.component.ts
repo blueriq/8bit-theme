@@ -55,4 +55,15 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  switchTheme(){
+    if(document.body.className === '') {
+      document.body.classList.add('hackerman');
+    } else if (document.body.className === 'hackerman') {
+      document.body.className = '';
+      document.body.classList.add('unicorn');
+    } else {
+      document.body.className = '';
+    }
+  }
+
 }

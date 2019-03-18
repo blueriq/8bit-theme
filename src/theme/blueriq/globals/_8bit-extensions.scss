@@ -5,6 +5,37 @@ $scrollbar-thumb: #888;
 $scrollbar-hover: #555;
 $scrollbar: #212529;
 
+$themes: (
+  /* background / contrast */
+  hackerman: (black, rgb(131,234,83)),
+  unicorn: (pink, yellow)
+);
+
+@mixin theme($name, $colors) {
+  $background: nth($colors, 1);
+  $contrast: nth($colors, 2);
+
+  body {
+    &.#{$name} {
+      background: $background;
+      color: $contrast;
+
+      button {
+        background: $contrast;
+      }
+
+      .nes-input, .title {
+        background: $background;
+      }
+
+    }
+  }
+}
+
+@each $key, $value in $themes {
+  @include theme($key, $value);
+}
+
 .nes-container.with-title { // sass-lint:disable-line force-element-nesting
   .title {
     background-color: $bq-background-color;
