@@ -1,7 +1,7 @@
 
 # About
 
-The scripts in this repository are written for demo purposes. No rights reserved.
+Code in this repository are written for demo purposes. No rights reserved.
 
 # Note
 
